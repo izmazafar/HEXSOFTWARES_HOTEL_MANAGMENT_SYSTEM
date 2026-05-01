@@ -1,0 +1,164 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    // Quantity available in hotel
+    int qRooms = 50, qPasta = 100, qBurger = 100, qNoodles = 100, qShake = 100;
+
+    // Sold quantities
+    int sRooms = 0, sPasta = 0, sBurger = 0, sNoodles = 0, sShake = 0;
+
+    // Total price collection
+    int total = 0;
+
+    int choice, quantity;
+
+    do
+    {
+        cout << "\n====== HOTEL MANAGEMENT SYSTEM ======\n";
+        cout << "1. Book Rooms\n";
+        cout << "2. Order Pasta\n";
+        cout << "3. Order Burger\n";
+        cout << "4. Order Noodles\n";
+        cout << "5. Order Shake\n";
+        cout << "6. Show Sales & Collection\n";
+        cout << "7. Exit\n";
+
+        cout << "\nEnter Your Choice: ";
+        cin >> choice;
+
+        switch(choice)
+        {
+            case 1:
+                cout << "\nEnter number of rooms required: ";
+                cin >> quantity;
+
+                if(qRooms >= quantity)
+                {
+                    sRooms += quantity;
+                    qRooms -= quantity;
+
+                    total += quantity * 1200;
+
+                    cout << quantity << " room(s) booked successfully!\n";
+                }
+                else
+                {
+                    cout << "Only " << qRooms << " room(s) available.\n";
+                }
+                break;
+
+            case 2:
+                cout << "\nEnter quantity of Pasta: ";
+                cin >> quantity;
+
+                if(qPasta >= quantity)
+                {
+                    sPasta += quantity;
+                    qPasta -= quantity;
+
+                    total += quantity * 250;
+
+                    cout << quantity << " Pasta ordered successfully!\n";
+                }
+                else
+                {
+                    cout << "Only " << qPasta << " Pasta available.\n";
+                }
+                break;
+
+            case 3:
+                cout << "\nEnter quantity of Burger: ";
+                cin >> quantity;
+
+                if(qBurger >= quantity)
+                {
+                    sBurger += quantity;
+                    qBurger -= quantity;
+
+                    total += quantity * 150;
+
+                    cout << quantity << " Burger ordered successfully!\n";
+                }
+                else
+                {
+                    cout << "Only " << qBurger << " Burger available.\n";
+                }
+                break;
+
+            case 4:
+                cout << "\nEnter quantity of Noodles: ";
+                cin >> quantity;
+
+                if(qNoodles >= quantity)
+                {
+                    sNoodles += quantity;
+                    qNoodles -= quantity;
+
+                    total += quantity * 200;
+
+                    cout << quantity << " Noodles ordered successfully!\n";
+                }
+                else
+                {
+                    cout << "Only " << qNoodles << " Noodles available.\n";
+                }
+                break;
+
+            case 5:
+                cout << "\nEnter quantity of Shake: ";
+                cin >> quantity;
+
+                if(qShake >= quantity)
+                {
+                    sShake += quantity;
+                    qShake -= quantity;
+
+                    total += quantity * 100;
+
+                    cout << quantity << " Shake ordered successfully!\n";
+                }
+                else
+                {
+                    cout << "Only " << qShake << " Shake available.\n";
+                }
+                break;
+
+            case 6:
+                cout << "\n======= SALES & COLLECTION REPORT =======\n";
+
+                cout << "\nRooms Booked: " << sRooms;
+                cout << "\nRemaining Rooms: " << qRooms;
+                cout << "\nRoom Collection: " << sRooms * 1200 << endl;
+
+                cout << "\nPasta Sold: " << sPasta;
+                cout << "\nRemaining Pasta: " << qPasta;
+                cout << "\nPasta Collection: " << sPasta * 250 << endl;
+
+                cout << "\nBurger Sold: " << sBurger;
+                cout << "\nRemaining Burger: " << qBurger;
+                cout << "\nBurger Collection: " << sBurger * 150 << endl;
+
+                cout << "\nNoodles Sold: " << sNoodles;
+                cout << "\nRemaining Noodles: " << qNoodles;
+                cout << "\nNoodles Collection: " << sNoodles * 200 << endl;
+
+                cout << "\nShake Sold: " << sShake;
+                cout << "\nRemaining Shake: " << qShake;
+                cout << "\nShake Collection: " << sShake * 100 << endl;
+
+                cout << "\n\nTotal Collection for the Day = " << total << endl;
+                break;
+
+            case 7:
+                cout << "\nExiting Program...\n";
+                break;
+
+            default:
+                cout << "\nInvalid Choice! Please try again.\n";
+        }
+
+    } while(choice != 7);
+
+    return 0;
+}
